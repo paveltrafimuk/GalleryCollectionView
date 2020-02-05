@@ -13,7 +13,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "GalleryCollectionView",
-                path: "GalleryCollectionView",
-                dependencies: ["View2ViewTransition"])
+                dependencies: ["View2ViewTransition"],
+                path: "GalleryCollectionView")
     ]
 )
