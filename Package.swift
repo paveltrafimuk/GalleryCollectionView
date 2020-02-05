@@ -8,6 +8,9 @@ let package = Package(
         .library(name: "GalleryCollectionView",
                  targets: ["GalleryCollectionView"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/paveltrafimuk/View2ViewTransition", from: "1.0"),
+    ],
     targets: [
         .target(
             name: "GalleryCollectionView",
