@@ -12,8 +12,8 @@ let package = Package(
         .package(url: "https://github.com/paveltrafimuk/View2ViewTransition", from: "1.3.2"),
     ],
     targets: [
-        .target(
-            name: "GalleryCollectionView",
-            path: "GalleryCollectionView")
+        .target(name: "GalleryCollectionView",
+                path: "GalleryCollectionView",
+                dependencies: ["View2ViewTransition"])
     ]
 )
