@@ -66,6 +66,7 @@
 		DB13091323E0E00D004F02DA /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
 		DB13091523E20AF6004F02DA /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		DB13092923E22E14004F02DA /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		DB35006223EA8AB8001E8850 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		DBED346F23E8C1680050C389 /* GalleryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +93,7 @@
 		DB1308DA23E0CEF3004F02DA = {
 			isa = PBXGroup;
 			children = (
+				DB35006223EA8AB8001E8850 /* Package.swift */,
 				DB1308E623E0CEF3004F02DA /* GalleryCollectionView */,
 				DB1308F423E0CF27004F02DA /* GalleryCollectionView-example */,
 				DB1308E523E0CEF3004F02DA /* Products */,
