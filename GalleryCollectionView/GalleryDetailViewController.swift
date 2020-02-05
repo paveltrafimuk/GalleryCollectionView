@@ -93,14 +93,6 @@ extension GalleryDetailViewController: View2ViewTransitionPresented {
         }
         let result = cell.contentView.convert(cell.imageView.frame, from: cell.imageView.superview)
         return result
-//        // FIXME: Get frame on collection view more smart!!
-//        if let _ = navigationController, #available(iOS 11.0, *) {
-//            var frame: CGRect = cell.contentView.convert(cell.content.frame, to: view)
-//            frame.origin.y += 27.0
-//            return frame
-//        } else {
-//            return cell.contentView.convert(cell.content.frame, to: view)
-//        }
     }
     
     public func destinationView(_ userInfo: [String: Any]?, isPresenting: Bool) -> UIView {
