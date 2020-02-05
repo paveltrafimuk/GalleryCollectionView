@@ -566,7 +566,7 @@
 			repositoryURL = "https://github.com/paveltrafimuk/View2ViewTransition";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.4;
+				minimumVersion = 1.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

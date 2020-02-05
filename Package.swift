@@ -12,7 +12,7 @@ let package = Package(
                  targets: ["GalleryCollectionView"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/paveltrafimuk/View2ViewTransition", from: "1.3.4"),
+        .package(url: "https://github.com/paveltrafimuk/View2ViewTransition", from: "1.4.0"),
     ],
     targets: [
         .target(name: "GalleryCollectionView",
