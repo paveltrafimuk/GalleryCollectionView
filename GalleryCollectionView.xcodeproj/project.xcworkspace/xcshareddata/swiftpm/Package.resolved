@@ -5,9 +5,9 @@
         "package": "View2ViewTransition",
         "repositoryURL": "https://github.com/paveltrafimuk/View2ViewTransition",
         "state": {
-          "branch": "master",
+          "branch": null,
           "revision": "e1db527057059bb2358062be258b46a99bbc53a7",
-          "version": null
+          "version": "1.3.2"
         }
       }
     ]
