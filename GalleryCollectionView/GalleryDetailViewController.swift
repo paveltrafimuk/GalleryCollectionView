@@ -29,7 +29,8 @@ open class GalleryDetailViewController: UIViewController {
         guard let indexPath = collectionView.indexPathsForVisibleItems.first else {
             return
         }
-        transitionController.userInfo = ["destinationIndexPath": indexPath, "initialIndexPath": indexPath]
+        transitionController.context.destinationIndexPath = indexPath
+        transitionController.context.initialIndexPath = indexPath
         dismiss(animated: true, completion: nil)
     }
     
@@ -70,23 +71,10 @@ extension GalleryDetailViewController: UICollectionViewDelegate, UICollectionVie
 
 
 extension GalleryDetailViewController: View2ViewTransitionPresented {
-    // MARK: Gesture Delegate
     
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard let panGestureRecognizer: UIPanGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer else {
-            return true
-        }
-        guard let indexPath = collectionView.indexPathsForVisibleItems.first else {
-            return false
-        }
-        transitionController.userInfo = ["destinationIndexPath": indexPath, "initialIndexPath": indexPath]
-        let transate: CGPoint = panGestureRecognizer.translation(in: view)
-        return Double(abs(transate.y)/abs(transate.x)) > .pi / 4.0
-    }
-    
-    public func destinationFrame(_ userInfo: [String: Any]?, isPresenting: Bool) -> CGRect {
+    public func destinationFrame(_ context: TransitionControllerContext, isPresenting: Bool) -> CGRect {
         guard
-            let indexPath = userInfo?["destinationIndexPath"] as? IndexPath,
+            let indexPath = context.destinationIndexPath,
             let cell = collectionView.cellForItem(at: indexPath) as? GalleryCollectionViewCell
             else {
                 return .zero
@@ -95,9 +83,9 @@ extension GalleryDetailViewController: View2ViewTransitionPresented {
         return result
     }
     
-    public func destinationView(_ userInfo: [String: Any]?, isPresenting: Bool) -> UIView {
+    public func destinationView(_ context: TransitionControllerContext, isPresenting: Bool) -> UIView {
         guard
-            let indexPath = userInfo?["destinationIndexPath"] as? IndexPath,
+            let indexPath = context.destinationIndexPath,
             let cell = collectionView.cellForItem(at: indexPath) as? GalleryCollectionViewCell
             else {
                 return UIView()
@@ -105,11 +93,11 @@ extension GalleryDetailViewController: View2ViewTransitionPresented {
         return cell.imageView
     }
     
-    public func prepareDestinationView(_ userInfo: [String: Any]?, isPresenting: Bool) {
+    public func prepareDestinationView(_ context: TransitionControllerContext, isPresenting: Bool) {
         
         if isPresenting {
             guard
-                let indexPath = userInfo?["destinationIndexPath"] as? IndexPath
+                let indexPath = context.destinationIndexPath
                 else {
                     return
             }
@@ -118,6 +106,13 @@ extension GalleryDetailViewController: View2ViewTransitionPresented {
             
             self.collectionView.reloadData()
             self.collectionView.layoutIfNeeded()
+        }
+        else {
+            guard let indexPath = collectionView.indexPathsForVisibleItems.first else {
+                return
+            }
+            transitionController.context.destinationIndexPath = indexPath
+            transitionController.context.initialIndexPath = indexPath
         }
     }
 }

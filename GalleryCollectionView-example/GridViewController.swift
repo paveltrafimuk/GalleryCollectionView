@@ -79,7 +79,8 @@ extension GridViewController: UICollectionViewDelegate, UICollectionViewDataSour
         presentedViewController.images = images.map({ UIImage(named: $0 )! })
         presentedViewController.transitionController = self.transitionController
         
-        transitionController.userInfo = ["destinationIndexPath": indexPath as NSIndexPath, "initialIndexPath": indexPath as NSIndexPath]
+        transitionController.context.destinationIndexPath = indexPath
+        transitionController.context.initialIndexPath = indexPath
         
         // This example will push view controller if presenting view controller has navigation controller.
         // Otherwise, present another view controller
@@ -103,25 +104,25 @@ extension GridViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension GridViewController: View2ViewTransitionPresenting {
     
-    func initialFrame(_ userInfo: [String: Any]?, isPresenting: Bool) -> CGRect {
+    func initialFrame(_ context: TransitionControllerContext, isPresenting: Bool) -> CGRect {
         
-        guard let indexPath: IndexPath = userInfo?["initialIndexPath"] as? IndexPath, let attributes: UICollectionViewLayoutAttributes = self.collectionView.layoutAttributesForItem(at: indexPath) else {
+        guard let indexPath = context.initialIndexPath,
+            let attributes: UICollectionViewLayoutAttributes = self.collectionView.layoutAttributesForItem(at: indexPath) else {
             return CGRect.zero
         }
         return self.collectionView.convert(attributes.frame, to: self.collectionView.superview)
     }
     
-    func initialView(_ userInfo: [String: Any]?, isPresenting: Bool) -> UIView {
+    func initialView(_ context: TransitionControllerContext, isPresenting: Bool) -> UIView {
         
-        let indexPath: IndexPath = userInfo!["initialIndexPath"] as! IndexPath
+        let indexPath = context.initialIndexPath!
         let cell: UICollectionViewCell = self.collectionView.cellForItem(at: indexPath)!
-        
         return cell.contentView
     }
     
-    func prepareInitialView(_ userInfo: [String : Any]?, isPresenting: Bool) {
-        let indexPath: IndexPath = userInfo!["initialIndexPath"] as! IndexPath
-        
+    func prepareInitialView(_ context: TransitionControllerContext, isPresenting: Bool) {
+        guard let indexPath = context.initialIndexPath else { return }
+
         if !isPresenting && !self.collectionView.indexPathsForVisibleItems.contains(indexPath) {
             self.collectionView.reloadData()
             self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)
