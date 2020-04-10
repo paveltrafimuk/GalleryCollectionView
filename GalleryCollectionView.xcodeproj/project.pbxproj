@@ -21,6 +21,7 @@
 		DB13091423E0E00D004F02DA /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB13091323E0E00D004F02DA /* GalleryCollectionView.swift */; };
 		DB13091623E20AF6004F02DA /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB13091523E20AF6004F02DA /* UIView+Ext.swift */; };
 		DB13092A23E22E14004F02DA /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB13092923E22E14004F02DA /* GridViewController.swift */; };
+		DB5798F92440494400ACE211 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = DB5798F82440494400ACE211 /* Nuke */; };
 		DBED347023E8C1680050C389 /* GalleryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBED346F23E8C1680050C389 /* GalleryDetailViewController.swift */; };
 		DBED348223E8CC1A0050C389 /* View2ViewTransition in Frameworks */ = {isa = PBXBuildFile; productRef = DBED348123E8CC1A0050C389 /* View2ViewTransition */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBED348223E8CC1A0050C389 /* View2ViewTransition in Frameworks */,
+				DB5798F92440494400ACE211 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +178,7 @@
 			name = GalleryCollectionView;
 			packageProductDependencies = (
 				DBED348123E8CC1A0050C389 /* View2ViewTransition */,
+				DB5798F82440494400ACE211 /* Nuke */,
 			);
 			productName = GalleryCollectionView;
 			productReference = DB1308E423E0CEF3004F02DA /* GalleryCollectionView.framework */;
@@ -230,6 +233,7 @@
 			mainGroup = DB1308DA23E0CEF3004F02DA;
 			packageReferences = (
 				DBED348023E8CC1A0050C389 /* XCRemoteSwiftPackageReference "View2ViewTransition" */,
+				DB5798F72440494300ACE211 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = DB1308E523E0CEF3004F02DA /* Products */;
 			projectDirPath = "";
@@ -561,6 +565,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DB5798F72440494300ACE211 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.4.1;
+			};
+		};
 		DBED348023E8CC1A0050C389 /* XCRemoteSwiftPackageReference "View2ViewTransition" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/paveltrafimuk/View2ViewTransition";
@@ -572,6 +584,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DB5798F82440494400ACE211 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB5798F72440494300ACE211 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
 		DBED348123E8CC1A0050C389 /* View2ViewTransition */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DBED348023E8CC1A0050C389 /* XCRemoteSwiftPackageReference "View2ViewTransition" */;

@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke",
+        "state": {
+          "branch": null,
+          "revision": "6001489d22e5f41a4956c1b6cd4cf7cbe8f44dff",
+          "version": "8.4.1"
+        }
+      },
+      {
         "package": "View2ViewTransition",
         "repositoryURL": "https://github.com/paveltrafimuk/View2ViewTransition",
         "state": {

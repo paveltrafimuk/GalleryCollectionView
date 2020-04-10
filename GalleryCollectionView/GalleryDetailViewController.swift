@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import View2ViewTransition
+import Nuke
 
 open class GalleryDetailViewController: UIViewController {
     
@@ -16,6 +17,14 @@ open class GalleryDetailViewController: UIViewController {
     var collectionView: UICollectionView!
     
     public weak var transitionController: TransitionController!
+    
+    public var urls = [URLRequest]() {
+        didSet {
+            if isViewLoaded {
+                collectionView.reloadData()
+            }
+        }
+    }
     
     public var images = [UIImage]() {
         didSet {
@@ -55,15 +64,27 @@ open class GalleryDetailViewController: UIViewController {
 
 extension GalleryDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        images.count
+        if !urls.isEmpty {
+            return urls.count
+        }
+        return images.count
     }
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellRaw = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         if let cell = cellRaw as? GalleryCollectionViewCell {
-            let image = images[indexPath.item]
-            cell.imageView.image = image
-            cell.setupInitialZoom()
+            if !urls.isEmpty {
+                let imageRequest = ImageRequest(urlRequest: urls[indexPath.item])
+                Nuke.loadImage(with: imageRequest,
+                               into: cell.imageView) { _ in
+                                cell.setupInitialZoom()
+                }
+            }
+            else {
+                let image = images[indexPath.item]
+                cell.imageView.image = image
+                cell.setupInitialZoom()
+            }
         }
         return cellRaw
     }
