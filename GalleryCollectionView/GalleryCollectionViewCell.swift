@@ -43,10 +43,12 @@ open class GalleryCollectionViewCell: UICollectionViewCell {
     }
     
     public func setupInitialZoom() {
-        scrollView.layoutIfNeeded()
-        updateZoomValues(animated: false)
-        scrollView.zoomScale = scrollView.minimumZoomScale
-        updateInsets()
+        UIView.performWithoutAnimation {
+            scrollView.layoutIfNeeded()
+            updateZoomValues(animated: false)
+            scrollView.zoomScale = scrollView.minimumZoomScale
+            updateInsets()
+        }
     }
     
     public func updateZoomValues(animated: Bool) {
