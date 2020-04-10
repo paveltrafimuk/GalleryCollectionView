@@ -21,6 +21,9 @@ open class GalleryDetailViewController: UIViewController {
     public var urls = [URLRequest]() {
         didSet {
             if isViewLoaded {
+                let preheater = ImagePreheater()
+                let requests = urls.map { ImageRequest(urlRequest: $0) }
+                preheater.startPreheating(with: requests)
                 collectionView.reloadData()
             }
         }
