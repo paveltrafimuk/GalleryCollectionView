@@ -17,7 +17,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "GalleryCollectionView",
-                dependencies: ["View2ViewTransition"],
+                dependencies: ["View2ViewTransition", "Nuke"],
                 path: "GalleryCollectionView")
     ]
 )
