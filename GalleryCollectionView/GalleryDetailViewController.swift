@@ -14,7 +14,7 @@ import Nuke
 open class GalleryDetailViewController: UIViewController {
     
     let layout = GalleryCollectionViewLayout()
-    var collectionView: UICollectionView!
+    public var collectionView: UICollectionView!
     
     public weak var transitionController: TransitionController!
     
