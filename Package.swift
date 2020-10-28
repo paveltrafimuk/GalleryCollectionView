@@ -13,7 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/paveltrafimuk/View2ViewTransition", from: "1.4.7"),
-        .package(url: "https://github.com/kean/Nuke", from: "8.4.1"),
+        .package(url: "https://github.com/kean/Nuke", from: "9.1.2"),
     ],
     targets: [
         .target(name: "GalleryCollectionView",
